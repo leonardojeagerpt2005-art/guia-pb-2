@@ -1,0 +1,331 @@
+/* =========================================================
+   🔥 RESET Y CONFIGURACIÓN GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box; /* incluye padding y border en el tamaño */
+  margin: 0; /* elimina márgenes por defecto */
+  padding: 0; /* elimina padding por defecto */
+}
+
+body {
+  font-family: Arial, sans-serif; /* tipografía base */
+}
+
+
+/* =========================================================
+   🎨 TAMAÑO Y ESPACIADO
+========================================================= */
+
+.caja {
+  width: 200px; /* ancho */
+  height: 100px; /* alto */
+
+  margin: 20px; /* espacio externo */
+  padding: 15px; /* espacio interno */
+
+  border: 2px solid black; /* borde */
+}
+
+
+/* =========================================================
+   🎯 DISPLAY
+========================================================= */
+
+.display {
+  display: block;   /* ocupa toda la línea */
+  display: inline;  /* solo su contenido */
+  display: inline-block; /* mezcla */
+  display: flex;    /* activa flexbox */
+  display: grid;    /* activa grid */
+}
+
+
+/* =========================================================
+   📍 POSITION
+========================================================= */
+
+.posicion {
+  position: relative;
+
+  top: 10px;  /* mueve abajo */
+  left: 20px; /* mueve derecha */
+}
+
+
+/* =========================================================
+   🎨 TEXTO Y COLORES
+========================================================= */
+
+.texto {
+  color: white;
+  background: blue;
+
+  font-size: 16px;
+  text-align: center;
+}
+
+
+/* =========================================================
+   ⚡ FLEXBOX
+========================================================= */
+
+.contenedor {
+  display: flex;
+
+  flex-direction: row; /* horizontal */
+  justify-content: center; /* eje horizontal */
+  align-items: center; /* eje vertical */
+
+  gap: 20px; /* espacio entre elementos */
+
+  flex-wrap: wrap; /* permite bajar */
+}
+
+
+/* =========================================================
+   🧱 GRID
+========================================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr; /* 2 columnas */
+  gap: 10px;
+}
+
+.grid-item {
+  grid-column: span 2; /* ocupa 2 columnas */
+}
+
+
+/* =========================================================
+   🎬 TRANSICIONES
+========================================================= */
+
+.boton {
+  background: blue;
+  color: white;
+  padding: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  background: red;
+  transform: scale(1.1);
+}
+
+
+/* =========================================================
+   🔄 TRANSFORM
+========================================================= */
+
+.transform {
+  transform: scale(1.2);
+  transform: rotate(45deg);
+  transform: translateX(50px);
+}
+
+
+/* =========================================================
+   🎥 ANIMACIONES
+========================================================= */
+
+@keyframes mover {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+}
+
+.animacion {
+  animation: mover 2s infinite;
+}
+
+
+/* FADE IN */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade {
+  animation: fadeIn 1s ease-in;
+}
+
+
+/* =========================================================
+   👁️ OCULTAR ELEMENTOS
+========================================================= */
+
+.oculto {
+  display: none;
+}
+
+
+/* =========================================================
+   🍔 MENU HAMBURGUESA
+========================================================= */
+
+#menu {
+  background: black;
+  color: white;
+  padding: 20px;
+}
+
+#menuBtn {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   🎥 VIDEO CON ICONO
+========================================================= */
+
+.video-container {
+  position: relative;
+  width: 400px;
+}
+
+video {
+  width: 100%;
+}
+
+#playIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 50px;
+  color: white;
+  background: rgba(0,0,0,0.5);
+
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   🚨 OVERFLOW
+========================================================= */
+
+.overflow {
+  width: 200px;
+  height: 100px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   📱 RESPONSIVE DESIGN
+========================================================= */
+
+/* 📱 celulares pequeños */
+@media (max-width: 480px) {
+
+  .contenedor {
+    flex-direction: column;
+  }
+
+  .caja {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* 📱 celulares */
+@media (max-width: 768px) {
+
+  .contenedor {
+    flex-direction: column;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  /* menú oculto */
+  #menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  #menuBtn {
+    display: block;
+  }
+
+  /* video responsive */
+  .video-container {
+    width: 100%;
+  }
+
+  #playIcon {
+    font-size: 30px;
+  }
+}
+
+/* 📱 tablets */
+@media (max-width: 1024px) {
+
+  .contenedor {
+    flex-wrap: wrap;
+  }
+
+  .caja {
+    width: 50%;
+  }
+}
+
+/* 💻 laptops */
+@media (max-width: 1280px) {
+
+  .caja {
+    width: 33.33%;
+  }
+}
+
+/* 🖥️ pantallas grandes */
+@media (min-width: 1281px) {
+
+  .contenedor {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .caja {
+    width: 25%;
+  }
+}
+
+
+/* =========================================================
+   🧠 TIPS EXAMEN
+========================================================= */
+
+/*
+✔ No centra?
+→ justify-content (horizontal)
+→ align-items (vertical)
+
+✔ No funciona flex?
+→ falta display: flex
+
+✔ No se oculta?
+→ revisa clase .oculto
+
+✔ Responsive falla?
+→ revisa media queries
+
+✔ Elementos se montan?
+→ usa flex-wrap
+
+✔ Imágenes grandes?
+→ width: 100%
+*/
